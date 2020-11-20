@@ -126,7 +126,7 @@ while won is False:
     print('{}'.format('\n') * 15)
 
 # End Game Notification
-if turn == 11 and won is False:
+if turn == 9 and won is False:
     print('Cat\'s game!')
 elif turn % 2 == 0:
     print('Player 2 has won!')
