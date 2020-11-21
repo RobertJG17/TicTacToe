@@ -1,7 +1,9 @@
 """TIC TAC TOE GAME"""
 import time
+import Player
 
 
+# Logic checker for board input
 def check_logic(player, p_input, p_number):
     valid = False
 
@@ -36,7 +38,6 @@ def check_logic(player, p_input, p_number):
 
 print("\n\n\n\t\tWelcome!\n------------------------\n")
 dictionary = {k: '' for k in [i for i in range(1, 10)]}
-print(dictionary)
 won = False
 turn = 0
 
@@ -106,6 +107,7 @@ while won is False:
     if won is True or turn == 9:
         break
 
+    # Using turn variable to decide which player is next
     if turn % 2 == 0:
 
         player_number = 1
@@ -122,6 +124,7 @@ while won is False:
         player_input = check_logic(player2, player_input, player_number)
         dictionary[player_input] = player2
 
+    # Incrementing turn and prints newlines between board displays
     turn += 1
     print('{}'.format('\n') * 15)
 
