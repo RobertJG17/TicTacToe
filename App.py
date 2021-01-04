@@ -1,6 +1,6 @@
 """TIC TAC TOE GAME"""
 import time
-import Player
+from PlayerModel import Player
 
 
 # Logic checker for board input
