@@ -1,4 +1,6 @@
 import pygame
+from main import *
+from helper import *
 
 
 def load_menu():
@@ -33,10 +35,13 @@ def load_menu():
 
     # rendering a text written in
     # this font
+    title = small_font.render("**   WELCOME TO TIC-TAC-TO   **", True, color)
     play = small_font.render('play', True, color)
     text = small_font.render('quit', True, color)
 
     while True:
+
+        pygame.draw.rect(screen, color_light, [width / 8 + 25, height / 8 + 40, 140, 40])
 
         for ev in pygame.event.get():
 
@@ -50,9 +55,11 @@ def load_menu():
                 # button the game is terminated
                 if width / 2 <= mouse[0] <= width / 2 + 140 and height / 2 <= mouse[1] <= height / 2 + 40:
                     pygame.quit()
+                elif width / 4 + 100 <= mouse[0] and height / 4 + 100 <= mouse[1]:
+                    player_select(player1, player2)
 
                     # fills the screen with a color
-        screen.fill((60, 25, 60))
+        screen.fill((25, 25, 255))
 
         # stores the (x,y) coordinates into
         # the variable as a tuple
@@ -62,11 +69,12 @@ def load_menu():
         # changes to lighter shade
         if width / 2 <= mouse[0] <= width / 2 + 140 and height / 2 <= mouse[1] <= height / 2 + 40:
             pygame.draw.rect(screen, color_light, [width / 4 + 100, height / 2, 140, 40])
-
         else:
-            pygame.draw.rect(screen, color_dark, [width / 4 + 100, height / 2, 140, 40])
+            pygame.draw.rect(screen, color_dark, [width / 4 + 100, height / 3 + 40, 140, 40])
+            #pygame.draw.rect(screen, color_dark, [width / 4 + 100, height / 2, 140, 40])
 
             # superimposing the text onto our button
+        screen.blit(title, (width / 8 + 25, height / 8 + 40, 140, 40))
         screen.blit(play, (width / 4 + 100, height / 4 + 100))
         screen.blit(text, (width / 4 + 100, height / 2))
 
