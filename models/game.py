@@ -1,9 +1,15 @@
 import pygame
 
 
-def load_menu(screen):
+def load_game():
     # initializing the constructor
     pygame.init()
+
+    # screen resolution
+    (width, height) = (720, 720)
+
+    # opens up a window
+    screen = pygame.display.set_mode(res)
 
     # white color
     color = (255, 255, 255)
@@ -73,7 +79,7 @@ def load_menu(screen):
         #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 5, 140, 40])
         #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 55, 140, 40])
 
-            # superimposing the text onto our button
+        # superimposing the text onto our button
         screen.blit(play_button, (width / 2 - 25, height / 2 - 50))
         screen.blit(quit_button, (width / 2 - 25, height / 2))
 

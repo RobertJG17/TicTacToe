@@ -3,6 +3,7 @@ from models.PlayerModel import Player
 from models.BoardModel import Board
 from helper import *
 from menu import load_menu
+import pygame
 
 
 # START
@@ -10,13 +11,23 @@ print('{}'.format('\n') * 10)
 print("\n\n\n\t\tWelcome!\n------------------------\n")
 restart = 'y'
 
+# initializing the constructor
+pygame.init()
+
+# screen resolution
+res = (720, 720)
+
+# opens up a window
+screen = pygame.display.set_mode(res)
+
+load_menu(screen)
 
 # Start/Restart Game
 while restart.lower() == 'y':
     # Player/Board Instances
     player1 = Player(player_number=1)
     player2 = Player(player_number=2)
-    load_menu()
+
     board = Board()
 
     icon_dict = {k: '' for k in [i for i in range(1, 10)]}
