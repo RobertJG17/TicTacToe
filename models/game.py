@@ -1,15 +1,12 @@
 import pygame
 
 
-def load_game():
+def load_game(screen):
     # initializing the constructor
     pygame.init()
 
     # screen resolution
     (width, height) = (720, 720)
-
-    # opens up a window
-    screen = pygame.display.set_mode(res)
 
     # white color
     color = (255, 255, 255)

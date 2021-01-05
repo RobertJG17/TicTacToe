@@ -2,17 +2,17 @@ import time
 
 
 # Helper Functions
-def player_select(p1, p2):
-    while p1.player_icon not in ('X', 'O'):
-        p1.player_icon = input('Player 1, Do you want to be X or O?: ').upper()
-        p1.player_icon.replace(" ", "")
+def player_select(player1, player2):
+    while player1.player_icon not in ('X', 'O'):
+        player1.player_icon = input('Player 1, Do you want to be X or O?: ').upper()
+        player1.player_icon.replace(" ", "")
 
-    if p1.player_icon == 'X':
-        p2.player_icon = 'O'
+    if player1.player_icon == 'X':
+        player2.player_icon = 'O'
     else:
-        p2.player_icon = 'X'
+        player2.player_icon = 'X'
 
-    print('\nPlayer 1 --> {} <-- will go first\n\n'.format(p1.player_icon))
+    print('\nPlayer 1 --> {} <-- will go first\n\n'.format(player1.player_icon))
     print('Please wait for the screen to display')
 
     time.sleep(3.75)

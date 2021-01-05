@@ -1,7 +1,9 @@
 import pygame
+from main import *
+from helper import *
 
 
-def load_menu(screen):
+def load_menu(scr):
     # initializing the constructor
     pygame.init()
 
@@ -16,11 +18,11 @@ def load_menu(screen):
 
     # stores the width of the
     # screen into a variable
-    width = screen.get_width()
+    width = scr.get_width()
 
     # stores the height of the
     # screen into a variable
-    height = screen.get_height()
+    height = scr.get_height()
 
     print(width, height)
 
@@ -29,12 +31,16 @@ def load_menu(screen):
 
     # rendering a text written in
     # this font
+
+    title = small_font.render("**   WELCOME TO TIC-TAC-TO   **", True, color)
     play_button = small_font.render('play', True, color)
     quit_button = small_font.render('quit', True, color)
 
     did_press_play = False
 
     while not did_press_play:
+
+        pygame.draw.rect(scr, color_light, [width / 8 + 25, height / 8 + 40, 140, 40])
 
         for ev in pygame.event.get():
 
@@ -56,26 +62,31 @@ def load_menu(screen):
                 # QUIT BUTTON
                 elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 5 <= mouse[1] <= height / 2 + 35:
                     pygame.quit()
+                elif width / 4 + 100 <= mouse[0] and height / 4 + 100 <= mouse[1]:
+                    player_select(player1, player2)
 
         # fills the screen with a color
-        screen.fill((60, 25, 60))
+        scr.fill((25, 25, 255))
+
         # stores the (x,y) coordinates into
         # the variable as a tuple
         mouse = pygame.mouse.get_pos()
 
         # if mouse is hovered on a button it
         # changes to lighter shade
+
         if width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 5 <= mouse[1] <= height / 2 + 35:
-            pygame.draw.rect(screen, color_light, [width / 2 - 70, height / 2 - 5, 140, 40])
+            pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 5, 140, 40])
         elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 55 <= mouse[1] <= height / 2 - 15:
-            pygame.draw.rect(screen, color_light, [width / 2 - 70, height / 2 - 55, 140, 40])
+            pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 55, 140, 40])
         # else:
         #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 5, 140, 40])
         #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 55, 140, 40])
 
             # superimposing the text onto our button
-        screen.blit(play_button, (width / 2 - 25, height / 2 - 50))
-        screen.blit(quit_button, (width / 2 - 25, height / 2))
+        scr.blit(title, (width / 8 + 25, height / 8 + 40, 140, 40))
+        scr.blit(play_button, (width / 2 - 25, height / 2 - 50))
+        scr.blit(quit_button, (width / 2 - 25, height / 2))
 
         # updates the frames of the game
         pygame.display.update()
