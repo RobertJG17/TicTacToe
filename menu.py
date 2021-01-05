@@ -1,6 +1,4 @@
 import pygame
-from main import *
-from helper import *
 
 
 def load_menu(scr):
@@ -62,8 +60,8 @@ def load_menu(scr):
                 # QUIT BUTTON
                 elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 5 <= mouse[1] <= height / 2 + 35:
                     pygame.quit()
-                elif width / 4 + 100 <= mouse[0] and height / 4 + 100 <= mouse[1]:
-                    player_select(player1, player2)
+                # elif width / 4 + 100 <= mouse[0] and height / 4 + 100 <= mouse[1]:
+                #     player_select(player1, player2)
 
         # fills the screen with a color
         scr.fill((25, 25, 255))
