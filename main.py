@@ -35,7 +35,7 @@ while restart.lower() == 'y':
 
     # End Game Notification
     board.handle_win_loss()
-    restart = input('Would you like to play again? (Y/N): ')
+    restart = input('Would you like to play Tic Tac Toe again? (Y/N): ')
 
 print("\n-------------------------------")
 print("*\t\t\t\t\t\t\t  *")
