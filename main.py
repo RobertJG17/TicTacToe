@@ -1,19 +1,24 @@
 """TIC TAC TOE GAME"""
-from PlayerModel import Player
-from BoardModel import Board
+from models.PlayerModel import Player
+from models.BoardModel import Board
 from helper import *
+import menu
+
 
 # START
 print('{}'.format('\n') * 10)
 print("\n\n\n\t\tWelcome!\n------------------------\n")
 restart = 'y'
 
+menu.load_menu()
+
 # Start/Restart Game
 while restart.lower() == 'y':
     # Player/Board Instances
-    player1 = Player(player_icon='', player_number=1)
-    player2 = Player(player_icon='', player_number=2)
+    player1 = Player(player_number=1)
+    player2 = Player(player_number=2)
     board = Board()
+
     icon_dict = {k: '' for k in [i for i in range(1, 10)]}
 
     player_select(player1, player2)
@@ -22,6 +27,7 @@ while restart.lower() == 'y':
     while board.did_win is False:
 
         board.print_board(icon_dict)
+
         if board.victory_check(icon_dict):
             break
 

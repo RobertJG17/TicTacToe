@@ -1,7 +1,7 @@
 
 class Player:
 
-    def __init__(self, player_icon=None, player_number=None, player_input=None):
+    def __init__(self, player_icon='', player_number=None, player_input=None):
         self.player_icon = player_icon
         self.player_number = player_number
         self.player_input = player_input
