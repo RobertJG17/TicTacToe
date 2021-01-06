@@ -12,7 +12,7 @@ def load_menu(scr):
     color_light = (170, 170, 170)
 
     # dark shade of the button
-    color_dark = (100, 100, 100)
+    # color_dark = (100, 100, 100)
 
     # stores the width of the
     # screen into a variable
