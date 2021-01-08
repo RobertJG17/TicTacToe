@@ -2,11 +2,9 @@ import pygame
 
 
 def load_menu(scr):
-    # initializing the constructor
-    pygame.init()
 
     # white color
-    color = (255, 255, 255)
+    white = (255, 255, 255)
 
     # light shade of the button
     color_light = (170, 170, 170)
@@ -30,9 +28,9 @@ def load_menu(scr):
     # rendering a text written in
     # this font
 
-    title = small_font.render("**   WELCOME TO TIC-TAC-TO   **", True, color)
-    play_button = small_font.render('play', True, color)
-    quit_button = small_font.render('quit', True, color)
+    title = small_font.render("**   TO TIC-TAC-TO   **", True, white)
+    play_button = small_font.render('play', True, white)
+    quit_button = small_font.render('quit', True, white)
 
     did_press_play = False
 
@@ -64,7 +62,7 @@ def load_menu(scr):
                 #     player_select(player1, player2)
 
         # fills the screen with a color
-        scr.fill((25, 25, 255))
+        scr.fill((28, 170, 156))
 
         # stores the (x,y) coordinates into
         # the variable as a tuple
@@ -77,11 +75,8 @@ def load_menu(scr):
             pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 5, 140, 40])
         elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 55 <= mouse[1] <= height / 2 - 15:
             pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 55, 140, 40])
-        # else:
-        #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 5, 140, 40])
-        #     pygame.draw.rect(screen, color_dark, [width / 2 - 70, height / 2 - 55, 140, 40])
 
-            # superimposing the text onto our button
+        # superimposing the text onto our button
         scr.blit(title, (width / 8 + 25, height / 8 + 40, 140, 40))
         scr.blit(play_button, (width / 2 - 25, height / 2 - 50))
         scr.blit(quit_button, (width / 2 - 25, height / 2))
