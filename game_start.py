@@ -38,6 +38,14 @@ def start_game():
     pygame.display.set_mode(game_res)
     background_color = (28, 170, 156)
     white = (255, 255, 255)
+    line_color = (23, 145, 135)
+    circle_color = (240, 231, 200)
+    cross_color = (75, 75, 85)
+    width = 600
+    height = 600
+    line_width = 15
+    square_size = 200  # square size is
+
     x_o_screen.fill(background_color)
 
     # defining font
@@ -50,6 +58,49 @@ def start_game():
     # superimpose onto screen
     x_o_screen.blit(welcome, (600 // 3 + 25, 600 / 2 - 200))
     x_o_screen.blit(ask_user, (600 // 3 - 150, 600 / 2 - 100))
+
+    #
+    # draw box1
+    #
+    # 1 vertical
+    pygame.draw.line(x_o_screen, line_color, (square_size - 100, square_size + 100),
+                     (square_size - 100, square_size + 300), line_width)
+    # 2 vertical
+    pygame.draw.line(x_o_screen, line_color, (square_size + 50, square_size + 100),
+                     (square_size + 50, square_size + 300), line_width)
+
+    # 1 horizontal
+    pygame.draw.line(x_o_screen, line_color, (square_size - 107, square_size + 100),
+                     (square_size + 57, square_size + 100), line_width)
+    # 2 horizontal
+    pygame.draw.line(x_o_screen, line_color, (square_size - 107, square_size + 300),
+                     (square_size + 57, square_size + 300), line_width)
+
+    # draw x for box1
+    pygame.draw.line(x_o_screen, cross_color, (square_size - 80, square_size + 150),
+                     (square_size + 40, square_size + 245), line_width)
+    pygame.draw.line(x_o_screen, cross_color, (square_size + 30, square_size + 150),
+                     (square_size - 80, square_size + 245), line_width)
+
+    #
+    # draw box2 #
+    #
+    # 1 horizontal
+    pygame.draw.line(x_o_screen, line_color, (square_size + 120, square_size + 100),
+                     (square_size + 270, square_size + 100), line_width)
+    # 2 horizontal
+    pygame.draw.line(x_o_screen, line_color, (square_size + 120, 2 * square_size + 100),
+                     (square_size + 270, 2 * square_size + 100), line_width)
+
+    # 1 vertical
+    pygame.draw.line(x_o_screen, line_color, (square_size + 125, square_size + 93), (square_size + 125, 507),
+                     line_width)
+    # 2 vertical
+    pygame.draw.line(x_o_screen, line_color, (square_size + 275, square_size + 93), (square_size + 275, 507),
+                     line_width)
+
+    # draw O for box2
+    pygame.draw.circle(x_o_screen, circle_color, (400, 400), 50, 15)
 
     pygame.display.update()
 
