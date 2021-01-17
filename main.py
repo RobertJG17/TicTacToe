@@ -1,6 +1,7 @@
 """TIC TAC TOE GAME"""
-from game_start import start_game
-from menu import load_menu
+from views.select_view import start_game
+from views.menu_view import load_menu
+from views.game_view import load_game
 import pygame
 
 
@@ -19,5 +20,9 @@ pygame.display.update()
 load_menu(screen)
 
 # call game start method
-start_game()
+start_game(screen)
+
+# load in game assets
+load_game(screen)
+
 
