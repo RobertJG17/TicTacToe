@@ -81,11 +81,9 @@ def start_game(scr):
                 #     pygame.quit()
 
                 # X BUTTON
-                if square_size - 100 <= mouse[0] <= square_size + 50 and square_size + 100 <= mouse[1] <= square_size + 300:
+                if square_size - 92 <= mouse[0] <= square_size + 42 and square_size + 108 <= mouse[1] <= square_size + 292 or\
+                        square_size + 133 <= mouse[0] <= square_size + 267 and square_size + 108 <= mouse[1] <= square_size + 292:
                     test_select = True
-                # QUIT BUTTON
-                elif square_size + 125 <= mouse[0] <= square_size + 275 and square_size + 100 <= mouse[1] <= 2 * square_size + 100:
-                    pygame.quit()
 
         scr.fill(background_color)
 
