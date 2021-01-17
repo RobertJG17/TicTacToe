@@ -38,7 +38,7 @@ def start_game(scr):
     # pygame.display.set_caption('Tic Tac Toe: Game Time')
     # pygame.display.set_mode(game_res)
 
-    background_color = (28, 170, 156)
+    BACKGROUND_COLOR = (28, 170, 156)
     white = (255, 255, 255)
     line_color = (23, 145, 135)
     circle_color = (240, 231, 200)
@@ -49,7 +49,7 @@ def start_game(scr):
     line_width = 15
     square_size = 200  # square size is
 
-    # scr.fill(background_color)
+    # scr.fill(BACKGROUND_COLOR)
 
     # defining font
     small_font = pygame.font.SysFont('Corbel', 35)
@@ -85,7 +85,7 @@ def start_game(scr):
                         square_size + 133 <= mouse[0] <= square_size + 267 and square_size + 108 <= mouse[1] <= square_size + 292:
                     test_select = True
 
-        scr.fill(background_color)
+        scr.fill(BACKGROUND_COLOR)
 
         # Grabbing mouse coordinates
         mouse = pygame.mouse.get_pos()
@@ -148,42 +148,42 @@ def start_game(scr):
 
         pygame.display.update()
 
-    restart = 'y'
+    # restart = 'y'
 
     # Start/Restart Game
-    while restart.lower() == 'y':
-        # Player/Board Instances
-        player1 = Player(player_number=1)
-        player2 = Player(player_number=2)
-
-        board = Board()
-
-        icon_dict = {k: '' for k in [i for i in range(1, 10)]}
-
-        player_select(player1, player2)
-
-        # Game Loop
-        while board.did_win is False:
-
-            board.print_board(icon_dict)
-
-            if board.victory_check(icon_dict):
-                break
-
-            # Using turn variable to decide which player is next
-            player_move(player1, icon_dict) if board.turn % 2 == 0 else player_move(player2, icon_dict)
-
-            # Incrementing turn and prints newlines between board displays
-            board.increment()
-
-            print('{}'.format('\n') * 15)
-
-        # End Game Notification
-        board.handle_win_loss()
-        restart = input('Would you like to play Tic Tac Toe again? (Y/N): ')
-
-    print("\n-------------------------------")
-    print("*\t\t\t\t\t\t\t  *")
-    print("*\tThank you for playing!!\t  *")
-    print("*\t\t\t\t\t\t\t  *")
-    print("-------------------------------")
+    # while restart.lower() == 'y':
+    #     # Player/Board Instances
+    #     player1 = Player(player_number=1)
+    #     player2 = Player(player_number=2)
+    #
+    #     board = Board()
+    #
+    #     icon_dict = {k: '' for k in [i for i in range(1, 10)]}
+    #
+    #     player_select(player1, player2)
+    #
+    #     # Game Loop
+    #     while board.did_win is False:
+    #
+    #         board.print_board(icon_dict)
+    #
+    #         if board.victory_check(icon_dict):
+    #             break
+    #
+    #         # Using turn variable to decide which player is next
+    #         player_move(player1, icon_dict) if board.turn % 2 == 0 else player_move(player2, icon_dict)
+    #
+    #         # Incrementing turn and prints newlines between board displays
+    #         board.increment()
+    #
+    #         print('{}'.format('\n') * 15)
+    #
+    #     # End Game Notification
+    #     board.handle_win_loss()
+    #     restart = input('Would you like to play Tic Tac Toe again? (Y/N): ')
+    #
+    # print("\n-------------------------------")
+    # print("*\t\t\t\t\t\t\t  *")
+    # print("*\tThank you for playing!!\t  *")
+    # print("*\t\t\t\t\t\t\t  *")
+    # print("-------------------------------")
