@@ -1,7 +1,7 @@
 """TIC TAC TOE GAME"""
 from views.select_view import start_game
 from views.menu_view import load_menu
-from views.game_view import load_game
+# from views.game_view import load_game
 import pygame
 
 
@@ -22,7 +22,8 @@ load_menu(screen)
 # call game start method
 start_game(screen)
 
+# commented out 2-6-21
 # load in game assets
-load_game(screen)
+#load_game(screen)
 
 

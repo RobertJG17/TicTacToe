@@ -7,13 +7,33 @@ import sys
 # initialize pygame
 pygame.init()
 
-# set constants for screen
-WIDTH = 600
-HEIGHT = 600
+# set constants
+WIDTH = 300
+HEIGHT = 300
 LINE_WIDTH = 15
+BOARD_ROWS = 3
+BOARD_COLS = 3
+SQUARE_SIZE = WIDTH // BOARD_COLS  # each square is size of 200
+CIRCLE_RADIUS = SQUARE_SIZE // 3
+CIRCLE_WIDTH = 15
+CROSS_WIDTH = 25
+SPACE = SQUARE_SIZE // 4
+CROSS_COLOR = (75, 75, 85)
+
+# rgb:red green blue
 RED = (255, 0, 0)
 BACKGROUND_COLOR = (28, 170, 156)
 LINE_COLOR = (23, 145, 135)
+CIRCLE_COLOR = (240, 231, 200)
+
+# commented out 2-6-21
+# # set constants for screen
+# WIDTH = 600
+# HEIGHT = 600
+# LINE_WIDTH = 15
+# RED = (255, 0, 0)
+# BACKGROUND_COLOR = (28, 170, 156)
+#LINE_COLOR = (23, 145, 135)
 
 # create the screen (at this point we have a screen but will go away since there is main loop)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -129,7 +149,6 @@ def draw_figures():
 
 # create the check win functions
 
-
 # win Function
 def check_win(player):
     # vertical win check
@@ -201,10 +220,15 @@ def draw_desc_diagonal(player):
 def restart():
     screen.fill(BACKGROUND_COLOR)
     draw_lines()
+    mouseX = event.pos[0]  # x
+    mouseY = event.pos[1]
+
     for row in range(BOARD_ROWS):
         for col in range(BOARD_COLS):
             board[row][col] = 0
 
+            clicked_row = int(mouseY // SQUARE_SIZE)
+            clicked_col = int(mouseX // SQUARE_SIZE)
             # update the available square logic to include the check win function
 
             if available_square(clicked_row, clicked_col):

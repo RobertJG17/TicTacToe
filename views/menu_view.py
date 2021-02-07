@@ -1,4 +1,5 @@
 import pygame
+from views.select_view import player_select
 
 
 def load_menu(scr):
@@ -55,6 +56,7 @@ def load_menu(scr):
                 # PLAY BUTTON
                 if width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 55 <= mouse[1] <= height / 2 - 15:
                     did_press_play = True
+
                 # QUIT BUTTON
                 elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 5 <= mouse[1] <= height / 2 + 35:
                     pygame.quit()
