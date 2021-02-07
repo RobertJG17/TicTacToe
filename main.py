@@ -14,7 +14,6 @@ res = (600, 600)
 # opens up a welcome Window
 screen = pygame.display.set_mode(res)
 pygame.display.set_caption('Tic Tac Toe: by Bobby & Dad')
-pygame.display.update()
 
 # call load_menu method
 load_menu(screen)
@@ -22,7 +21,7 @@ load_menu(screen)
 # call game start method
 start_game(screen)
 
-# load in game assets
 load_game(screen)
+
 
 
