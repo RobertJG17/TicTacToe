@@ -1,5 +1,4 @@
 import pygame
-from views.select_view import player_select
 
 
 def load_menu(scr):
@@ -9,9 +8,6 @@ def load_menu(scr):
 
     # light shade of the button
     color_light = (170, 170, 170)
-
-    # dark shade of the button
-    # color_dark = (100, 100, 100)
 
     # stores the width of the
     # screen into a variable
@@ -28,12 +24,13 @@ def load_menu(scr):
 
     # rendering a text written in
     # this font
-
-    title = small_font.render("**   TO TIC-TAC-TO   **", True, white)
+    welcome = small_font.render("   Welcome To ", True, white)
+    title = small_font.render("TIC-TAC-TOE!", True, white)
     play_button = small_font.render('play', True, white)
     quit_button = small_font.render('quit', True, white)
 
     did_press_play = False
+    mouse = None
 
     while not did_press_play:
 
@@ -70,16 +67,14 @@ def load_menu(scr):
         # the variable as a tuple
         mouse = pygame.mouse.get_pos()
 
-        # if mouse is hovered on a button it
-        # changes to lighter shade
-
         if width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 5 <= mouse[1] <= height / 2 + 35:
             pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 5, 140, 40])
         elif width / 2 - 70 <= mouse[0] <= width / 2 + 70 and height / 2 - 55 <= mouse[1] <= height / 2 - 15:
             pygame.draw.rect(scr, color_light, [width / 2 - 70, height / 2 - 55, 140, 40])
 
         # superimposing the text onto our button
-        scr.blit(title, (width / 8 + 25, height / 8 + 40, 140, 40))
+        scr.blit(welcome, (width / 8 + 120, height / 8 + 40, 140, 40))
+        scr.blit(title, (width / 4 + 50, height / 4 + 20, 140, 40))
         scr.blit(play_button, (width / 2 - 25, height / 2 - 50))
         scr.blit(quit_button, (width / 2 - 25, height / 2))
 
